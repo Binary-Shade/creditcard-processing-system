@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Debit Page</title>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="container">
+  <h1>Debit Amount</h1>
+  <form id="debit-form">
+   <input type="number" id="amount" name="amount" placeholder="Enter amount">
+   <button type="submit" id="submit" style="margin-bottom:10px;">Debit</button>
+
+  </form>
+ </div>
+
+ <script src="common.js"></script>
+
+ <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    const debitForm = document.getElementById("debit-form");
+
+    // Form submission event listener
+    debitForm.addEventListener("submit", function(event) {
+     event.preventDefault();
+
+     // Get form data
+     const amount = parseFloat(document.getElementById("amount").value);
+
+     // Validate amount
+     if (isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid positive amount.");
+      return;
+     }
+
+     // Update balance
+     updateBalance(-amount); // Subtract amount for debit
+
+     // Display updated balance in SweetAlert
+     Swal.fire({
+       icon: 'success',
+       title: 'Debited Successfully!',
+       html: `Debited ${amount} rupees. Remaining balance: ${initializeBalance()} rupees.`,
+       confirmButtonText: 'OK'
+     }).then((result) => {
+       // Redirect to details.html after clicking OK
+       if (result.isConfirmed) {
+         window.location.href = "details.html";
+       }
+     });
+    });
+  });
+ </script>
+</body>
+</html>

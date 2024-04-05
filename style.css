@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://t4.ftcdn.net/jpg/05/71/83/47/360_F_571834789_ujYbUnH190iUokdDhZq7GXeTBRgqYVwa.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex; /* Use flexbox to center the login form */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set height to viewport height for full vertical coverage */
+  width: 100vw;
+}
+
+.container {
+    max-width: 500px; /* Adjust the max-width value as needed */
+    width: 80%; /* Alternatively, you can set a specific width instead of max-width */
+    margin: auto; /* Center the container horizontally */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+   background-image: linear-gradient(to right, #3498db, #c337f1);
+
+
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"]
+ {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+button[type="submit"],
+button[type="button"] {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.psw {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.psw a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.psw a:hover {
+    text-decoration: underline;
+}
+
+/* Add this CSS to your style.css file */
+
+/* Add this CSS to your style.css file */
+
+/* Add this CSS to your style.css file */
+
+/* Popup modal styles */
+.modal {
+
+  display: none; /* Hide the modal by default */
+  position: fixed; /* Position the modal */
+  z-index: 1; /* Ensure it appears above other content */
+  left: 10;
+  top: 50%;
+
+  width: 80%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+}
+
+#popup-modal-content {
+  position: fixed; /* Ensures the modal stays on top of other content 
+/*
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the modal horizontally and vertically */
+  background-color: white; /* Modal background color */
+  padding: 20px; /* Padding for content */
+  border: 1px solid #ccc; /* Optional border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+  z-index: 10; /* Ensures the modal stays on top of other elements */
+  display: none; /* Initially hidden */
+}
+
+#close {
+  position: absolute; /* Positions the close button in the top right corner */
+  top: -10px; /* Adjusts the top margin for proper placement */
+  right: -10px; /* Adjusts the right margin for proper placement */
+  font-size: 24px; /* Adjusts the close button font size */
+  cursor: pointer; /* Changes cursor to a pointer on hover */
+  color: #ccc; /* Close button color */
+}
+
+#close:hover {
+  color: black; /* Close button hover color */
+}
+
+
+.modal-content {
+
+
+
+
+top:-10;
+  background-color: #fefefe; /* White background */
+
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Set width */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

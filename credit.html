@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Credit Amount</h1>
+    <form id="credit-form">
+      <input type="number" id="amount" name="amount" placeholder="Enter amount">
+      <button type="button" id="submit" style="margin-bottom:10px;">Credit</button>
+    </form>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="credit.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const creditForm = document.getElementById("credit-form");
+
+      // Initialize current balance
+      let initialBalance = initializeBalance();
+
+      // Form submission event listener
+      document.getElementById("submit").addEventListener("click", function() {
+        // Get form data
+        const amount = parseFloat(document.getElementById("amount").value);
+
+        // Validate amount
+        if (isNaN(amount) || amount <= 0) {
+          alert("Please enter a valid positive amount.");
+          return;
+        }
+
+        // Update balance
+        updateBalance(amount);
+
+        // Display updated balance in SweetAlert
+        const updatedBalance = initializeBalance();
+        Swal.fire({
+          icon: "success",
+          title: "Credited",
+          text: `${amount} rupees credited. Total balance: ${updatedBalance} rupees.`,
+          showConfirmButton: true
+        }).then(()=>{
+window.location.href="details.html";
+});
+      });
+    });
+  </script>
+</body>
+</html>

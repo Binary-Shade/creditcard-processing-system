@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Details</h1>
+    <div id="details" style="margin-top: 20px; display: flex; flex-direction: column; align-items: center;">
+      <p>Name: <span id="name-display"></span></p>
+      <p>Credit Card: **** **** **** <span id="card-display"></span></p>
+      <p>CVV: *** (not stored)</p>
+
+      <p>Date: <span id="date-display"></span></p>
+ 
+    </div>
+    <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+      <button id="creditBtn" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">Credit</button>
+      <button id="debitBtn" style="background-color: #3f51b5; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">Debit</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to retrieve amount from local storage
+    function getAmountFromLocalStorage() {
+      const amount = localStorage.getItem("amount");
+      if (amount) {
+        try {
+          return JSON.parse(amount); // Try parsing as JSON if necessary
+        } catch (error) {
+          console.error("Error parsing amount from local storage:", error);
+          return null; // Handle parsing error
+        }
+      } else {
+        return null; // No value found
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Retrieve stored values from local storage
+      const name = localStorage.getItem("name");
+      const card = localStorage.getItem("card");
+      const cvv = localStorage.getItem("cvv"); // Not stored for security
+      const date = localStorage.getItem("date");
+
+      // Retrieve amount, handle potential errors
+      const amount = getAmountFromLocalStorage();
+
+      // Display retrieved values in corresponding elements
+      document.getElementById("name-display").textContent = name || "";
+      document.getElementById("card-display").textContent = card ? card.slice(-4) : "";
+      document.getElementById("date-display").textContent = date || "";
+
+    });
+
+    // Credit button event listener (assuming functionality in credit.js)
+    document.getElementById('creditBtn').addEventListener('click', function() {
+      // Redirect to credit page or perform credit actions using credit.js
+      window.location.href = "credit.html";
+    });
+
+    // Debit button event listener (assuming functionality in debit.js)
+    document.getElementById('debitBtn').addEventListener('click', function() {
+      // Redirect to debit page or perform debit actions using debit.js
+      window.location.href = "debit.html";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="login-form" action="#">
+      <input type="text" id="username" name="username" placeholder="Enter Username">
+      <input type="password" id="password" name="password" placeholder="Enter Password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+ 
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Replace with your actual username and password for validation
+      const validUsername = "priya";
+      const validPassword = "priya@123";
+
+      if (username !== validUsername || password !== validPassword) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Invalid Username or Password!",
+        });
+      } else {
+        // Successful login (redirect or show success message)
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          showConfirmButton: false,
+          timer: 1500 // Auto close after 1.5 seconds
+        }).then(() => {
+          // Redirect to another page after success
+          window.location.href = "dashboard.html"; // Replace with your target page
+        });
+      }
+    });
+  </script>
+</body>
+</html>
